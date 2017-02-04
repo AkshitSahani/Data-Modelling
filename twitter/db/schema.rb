@@ -10,33 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204192756) do
+ActiveRecord::Schema.define(version: 20170204200300) do
 
-  create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.date     "date"
-    t.integer  "host_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "tweets", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "guests", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.integer  "phone_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "tweets_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tweet_id"
   end
 
-  create_table "guests_hosts", force: :cascade do |t|
-    t.integer "guest_id"
-    t.integer "host_id"
-  end
-
-  create_table "hosts", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "phone_num"
+    t.integer  "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

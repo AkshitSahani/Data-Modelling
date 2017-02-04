@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.date :date
       t.integer :guest_id
       t.integer :host_id
-
+# remove guest_id from this table. Makes too much repitition. Moved it to guests_hosts table.
       t.timestamps
     end
   end

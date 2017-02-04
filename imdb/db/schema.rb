@@ -10,35 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204192756) do
+ActiveRecord::Schema.define(version: 20170204202458) do
 
-  create_table "events", force: :cascade do |t|
+  create_table "actors", force: :cascade do |t|
     t.string   "name"
-    t.date     "date"
-    t.integer  "host_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "guests", force: :cascade do |t|
-    t.string   "name"
+    t.integer  "phone"
     t.string   "address"
-    t.integer  "phone_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "guests_hosts", force: :cascade do |t|
-    t.integer "guest_id"
-    t.integer "host_id"
+  create_table "actors_films", force: :cascade do |t|
+    t.integer "actor_id"
+    t.integer "film_id"
   end
 
-  create_table "hosts", force: :cascade do |t|
+  create_table "directors", force: :cascade do |t|
     t.string   "name"
+    t.integer  "phone"
     t.string   "address"
-    t.integer  "phone_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "films", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date_released"
+    t.integer  "director_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
